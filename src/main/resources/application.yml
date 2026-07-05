@@ -1,0 +1,29 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: drivemastermain
+
+app:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/drivemaster_app?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:drivemaster_app}
+    password: ${DB_PASSWORD:changeme}
+    init-schema: ${DB_INIT_SCHEMA:true}
+    pool:
+      min-size: ${DB_POOL_MIN:5}
+      max-size: ${DB_POOL_MAX:20}
+      connection-timeout-ms: ${DB_POOL_TIMEOUT_MS:5000}
+  jwt:
+    secret: ${JWT_SECRET:REPLACE_WITH_A_BASE64_SECRET_AT_LEAST_32_BYTES_LONG}
+    expiration-ms: ${JWT_EXPIRATION_MS:3600000}
+  notification:
+    pool-size: ${NOTIFY_POOL_SIZE:4}
+  admin:
+    bootstrap-email: ${ADMIN_BOOTSTRAP_EMAIL:admin@drivemaster.local}
+    bootstrap-password: ${ADMIN_BOOTSTRAP_PASSWORD:ChangeMe_123!}
+
+logging:
+  level:
+    com.drivemaster.drivemastermain: INFO

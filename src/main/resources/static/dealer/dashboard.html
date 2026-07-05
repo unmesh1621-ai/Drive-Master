@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DriveMaster - Dealer Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<header>
+    <div class="logo">DRIVEMASTER &middot; Dealer</div>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Marketplace</a></li>
+            <li><a href="#" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div id="message"></div>
+
+<div class="main-content">
+    <p id="dealer-profile" class="section-title"></p>
+
+    <h2 class="section-title">Add a Vehicle</h2>
+    <form id="add-vehicle-form" class="auth-form" style="max-width:600px">
+        <label>Name<input type="text" name="name" required/></label>
+        <label>Make<input type="text" name="make" required/></label>
+        <label>Model<input type="text" name="model" required/></label>
+        <label>Year<input type="number" name="year" min="1900" required/></label>
+        <label>Mileage (km)<input type="number" name="mileage" min="0" value="0" required/></label>
+        <label>Fuel Type<input type="text" name="fuelType" required/></label>
+        <label>Price (per sale, or per day for rent)<input type="number" name="price" min="0.01" step="0.01" required/></label>
+        <label>Listing Type
+            <select name="listingType">
+                <option value="SALE">Sale only</option>
+                <option value="RENT">Rent only</option>
+                <option value="BOTH">Sale and Rent</option>
+            </select>
+        </label>
+
+        <h3 style="margin-top:20px">Features (optional)</h3>
+        <label>Color<input type="text" name="color"/></label>
+        <label>Engine Capacity<input type="text" name="engineCapacity" placeholder="e.g. 1.8L"/></label>
+        <label>Transmission<input type="text" name="transmission" placeholder="e.g. Automatic"/></label>
+        <label>Horsepower<input type="text" name="horsepower" placeholder="e.g. 140 hp"/></label>
+        <label>Seating Capacity<input type="number" name="seatingCapacity" min="1"/></label>
+        <label>Safety Rating<input type="text" name="safetyRating" placeholder="e.g. 5-star NCAP"/></label>
+        <label><input type="checkbox" name="hasGps" style="width:auto;display:inline"/> GPS</label>
+        <label><input type="checkbox" name="hasBluetooth" style="width:auto;display:inline"/> Bluetooth</label>
+        <label><input type="checkbox" name="hasSunroof" style="width:auto;display:inline"/> Sunroof</label>
+
+        <button type="submit">List Vehicle</button>
+    </form>
+
+    <h2 class="section-title">My Listings</h2>
+    <div id="dealer-vehicles"></div>
+
+    <h2 class="section-title">Incoming Orders</h2>
+    <div id="dealer-orders"></div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/dealer.js"></script>
+</body>
+</html>

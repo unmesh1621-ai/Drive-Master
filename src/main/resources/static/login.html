@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DriveMaster - Login</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<div id="message"></div>
+<div class="auth-form">
+    <h2>Log In</h2>
+    <form id="login-form">
+        <label>Email<input type="email" id="email" required/></label>
+        <label>Password<input type="password" id="password" required/></label>
+        <button type="submit">Log In</button>
+    </form>
+    <p class="auth-switch">New here? <a href="/register.html">Create an account</a></p>
+    <p class="auth-switch"><a href="/index.html">Back to marketplace</a></p>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        try {
+            const data = await loginUser(document.getElementById('email').value, document.getElementById('password').value);
+            showMessage('Login successful, redirecting...', false);
+            setTimeout(() => redirectAfterLogin(data.role), 500);
+        } catch (err) {
+            showMessage('Login failed: ' + err.message, true);
+        }
+    });
+</script>
+</body>
+</html>

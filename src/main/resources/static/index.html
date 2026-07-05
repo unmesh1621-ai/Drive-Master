@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DriveMaster - Vehicle Marketplace</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<header>
+    <div class="logo">DRIVEMASTER</div>
+    <nav>
+        <ul>
+            <li><a href="#home" class="active" onclick="navigateTo('home')">Home</a></li>
+            <li><a href="#vehicles" onclick="navigateTo('vehicles')">Vehicles</a></li>
+            <li><a href="#orders" id="nav-orders" onclick="navigateTo('orders'); fetchMyOrders();">My Orders</a></li>
+            <li id="nav-account"><a href="/login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div id="message"></div>
+
+<div class="main-content">
+    <section id="home" class="hero">
+        <h1>DISCOVER YOUR RIDE</h1>
+        <p>Browse listings from independent dealers &mdash; buy or rent, all in one marketplace.</p>
+        <button onclick="navigateTo('vehicles')">Browse Vehicles</button>
+    </section>
+
+    <section id="vehicles">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search by name, make, or model"/>
+            <button onclick="runSearch()">Search</button>
+        </div>
+
+        <h2 class="section-title">Available Vehicles</h2>
+        <div class="vehicle-list" id="vehicle-list"></div>
+
+        <section id="vehicle-details">
+            <h2>Vehicle Details</h2>
+            <p id="vehicle-info"></p>
+            <div class="rental-dates">
+                <label>Rental start<br/><input type="date" id="rentalStart"/></label>
+                <label>Rental end<br/><input type="date" id="rentalEnd"/></label>
+            </div>
+            <button onclick="addToCart()">Buy</button>
+            <button onclick="addToRental()">Rent</button>
+        </section>
+    </section>
+
+    <section id="orders">
+        <h2 class="section-title">My Orders</h2>
+        <div id="my-orders"></div>
+    </section>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/vehicles.js"></script>
+<script src="/js/orders.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>DriveMaster - Register</title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<div id="message"></div>
+<div class="auth-form">
+    <h2>Create an Account</h2>
+    <form id="register-form">
+        <label>I am a
+            <select id="accountType">
+                <option value="user">Customer</option>
+                <option value="dealer">Dealer</option>
+            </select>
+        </label>
+        <label>Name<input type="text" id="name" required/></label>
+        <label>Email<input type="email" id="email" required/></label>
+        <label>Password (min 8 characters)<input type="password" id="password" minlength="8" required/></label>
+        <label id="business-name-field" style="display:none">Business Name<input type="text" id="businessName"/></label>
+        <button type="submit">Create Account</button>
+    </form>
+    <p class="auth-switch">Already have an account? <a href="/login.html">Log in</a></p>
+    <p class="auth-switch"><a href="/index.html">Back to marketplace</a></p>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script>
+    document.getElementById('accountType').addEventListener('change', (e) => {
+        document.getElementById('business-name-field').style.display = e.target.value === 'dealer' ? 'block' : 'none';
+    });
+
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const type = document.getElementById('accountType').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        try {
+            if (type === 'dealer') {
+                await registerDealer(name, email, password, document.getElementById('businessName').value);
+                showMessage('Dealer account created. An admin must approve it before you can log in.', false);
+            } else {
+                await registerUser(name, email, password);
+                showMessage('Account created. You can now log in.', false);
+            }
+            setTimeout(() => window.location.href = '/login.html', 1500);
+        } catch (err) {
+            showMessage('Registration failed: ' + err.message, true);
+        }
+    });
+</script>
+</body>
+</html>

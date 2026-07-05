@@ -1,0 +1,285 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+a {
+    color: inherit;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 15px 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6600;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #444;
+    text-decoration: none;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    border-bottom: 3px solid #ff6600;
+    color: #ff6600;
+}
+
+.main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #2c3e50, #4a6278);
+    border-radius: 10px;
+    height: 280px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
+.hero button {
+    background: #ff6600;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hero button:hover {
+    background: #cc5200;
+}
+
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar input,
+.search-bar select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+button, .btn {
+    background: #ff6600;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover, .btn:hover {
+    background: #cc5200;
+}
+
+button.secondary {
+    background: #607080;
+}
+
+button.secondary:hover {
+    background: #4a5866;
+}
+
+button.danger {
+    background: #c0392b;
+}
+
+button.danger:hover {
+    background: #962d21;
+}
+
+.vehicle-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.vehicle-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    width: 250px;
+}
+
+.vehicle-item:hover {
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
+}
+
+#vehicle-details {
+    display: none;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.rental-dates {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.rental-dates label {
+    font-size: 14px;
+}
+
+.auth-form {
+    max-width: 380px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.auth-form input, .auth-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.auth-form button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.auth-switch {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#message {
+    max-width: 1100px;
+    margin: 10px auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: none;
+}
+
+#message.success {
+    display: block;
+    background: #d4edda;
+    color: #155724;
+}
+
+#message.error {
+    display: block;
+    background: #f8d7da;
+    color: #721c24;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+th {
+    background: #f0f0f0;
+}
+
+.section-title {
+    margin: 25px 0 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-tile {
+    background: white;
+    border-radius: 8px;
+    padding: 18px;
+    flex: 1;
+    min-width: 140px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.stat-tile .value {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff6600;
+}
+
+.stat-tile .label {
+    font-size: 13px;
+    color: #666;
+}
